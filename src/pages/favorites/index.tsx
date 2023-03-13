@@ -3,15 +3,16 @@ import { Header } from '@/components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useState } from 'react'
 import { api } from '@/services/apiClient'
-import Image from 'next/image'
 
 import styles from './favorites.module.scss'
+import { Card } from '@/components/Card'
 
 export default function Favorites() {
   const [favoritesList, setFavoritesList] = useState()
   const [pokemonDetails, setPokemonDetails] = useState<any>()
+  const [currentPokemon, setCurrentPokemon] = useState()
   const pokemonImg = pokemonDetails?.sprites.front_default
-
+  var favorites: [] = JSON.parse(localStorage.getItem('favorites')) || []
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const item = localStorage.getItem('favorites')
@@ -21,9 +22,9 @@ export default function Favorites() {
   }, [getPokemonsDetails])
 
   async function getPokemonsDetails() {
+    const response = await api.get(`pokemon/${favoritesList[3]}`)
+    setPokemonDetails(response.data)
     try {
-      const response = await api.get(`pokemon/${favoritesList}`)
-      setPokemonDetails(response.data)
     } catch (error) {
       console.error(error)
     }
@@ -37,29 +38,13 @@ export default function Favorites() {
       <div>
         <Header />
         {pokemonDetails ? (
-          <div className={styles.body__container}>
-            <div className={styles.body__img}>
-              <Image
-                src={pokemonImg}
-                alt="logo"
-                priority
-                width={300}
-                height={300}
-              />
-            </div>
-            <div className={styles.body__details}>
-              Name: {pokemonDetails?.name}
-            </div>
-            <div className={styles.body__details}>
-              {pokemonDetails?.abilities.map(
-                (detail: { ability: { name: string } }) => (
-                  <div key={detail.ability.name}>
-                    Ability: {detail.ability.name}
-                  </div>
-                )
-              )}
-            </div>
-          </div>
+          <>
+            {favoritesList?.map(favorite => (
+              <div key={favorite}>
+                <Card name={favorite} />
+              </div>
+            ))}
+          </>
         ) : (
           <div>Loading </div>
         )}

@@ -14,7 +14,8 @@ export default function Details() {
   const [pokemon, setPokemon] = useState(query.name)
   const [pokemonDetails, setPokemonDetails] = useState<any>()
   const pokemonImg = pokemonDetails?.sprites.front_default
-  const [favorites, setFavorites] = useState<any[]>([])
+
+  var favorites: [] = JSON.parse(localStorage.getItem('favorites')) || []
 
   async function getPokemonsDetails() {
     try {
@@ -27,19 +28,14 @@ export default function Details() {
 
   useEffect(() => {
     getPokemonsDetails()
-    if (typeof window !== 'undefined') {
-      const pokemomOnStorage = localStorage.getItem('favorites')
-      const test = JSON.parse(pokemomOnStorage)
-      setFavorites(test)
-    }
   }, [])
 
   function handleCheck() {
     setCheck(!check)
-    setFavorites(prevState => ({ ...prevState, pokemon }))
-    localStorage.setItem('favorites', JSON.stringify(pokemon))
+    favorites.push(pokemon)
+    localStorage.setItem('favorites', JSON.stringify(favorites))
   }
-  console.log('favorites', favorites)
+
   return (
     <>
       <Head>
@@ -84,6 +80,3 @@ export default function Details() {
     </>
   )
 }
-// function getItem(arg0: string): any {
-//   throw new Error('Function not implemented.')
-// }
