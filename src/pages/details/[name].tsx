@@ -46,8 +46,8 @@ export default function Details() {
         {pokemonDetails ? (
           <div className={styles.body__container}>
             <Form.Check
-              label={`This is one of my favorits!`}
-              id="favoritCheck"
+              label={`This is one of my favorites!`}
+              id="favoritesCheck"
               checked={check}
               onClick={handleCheck}
             />

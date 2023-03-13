@@ -10,6 +10,7 @@ interface cardProps {
 export function Card({ name }: cardProps) {
   const [pokemonDetails, setPokemonDetails] = useState<any>()
   const pokemonImg = pokemonDetails?.sprites.front_default
+
   async function getPokemonsDetails() {
     try {
       const response = await api.get(`pokemon/${name}`)
@@ -20,7 +21,6 @@ export function Card({ name }: cardProps) {
   }
   useEffect(() => {
     getPokemonsDetails()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemonImg])
 
   return (
