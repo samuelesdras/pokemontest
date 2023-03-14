@@ -8,11 +8,12 @@
   height: 200px;
   display: flex;
   justify-content: center;
-  a {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+  flex-direction: column;
+  // a {
+  //   display: flex;
+  //   justify-content: center;
+  //   flex-direction: column;
+  // }
 }
 
 .body__card--links {

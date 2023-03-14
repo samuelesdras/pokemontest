@@ -52,7 +52,12 @@ export default function Home() {
               href={`/details/${pokemon.name}`}
             >
               <Card name={pokemon.name} />
-              <a>Click here for details!!</a>
+            </Link>
+            <Link
+              className={styles['body__card--links']}
+              href={`/details/${pokemon.name}`}
+            >
+              Click here for details!!
             </Link>
           </div>
         ))}
