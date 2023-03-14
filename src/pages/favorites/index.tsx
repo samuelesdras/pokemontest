@@ -24,7 +24,7 @@ export default function Favorites() {
       <div>
         <Header />
         <div className={styles.body_header}>
-          List of your favorites Pokemons!
+          List of your favorite Pokemons!
         </div>
         <div className={styles.body__cards}>
           {favoritesList ? (

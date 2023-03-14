@@ -52,7 +52,7 @@ export default function Home() {
               href={`/details/${pokemon.name}`}
             >
               <Card name={pokemon.name} />
-              Click here for details!!
+              <a>Click here for details!!</a>
             </Link>
           </div>
         ))}

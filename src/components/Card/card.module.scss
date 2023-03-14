@@ -1,5 +1,8 @@
 .container {
   width: 280px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .body__text {
   text-decoration: none;
