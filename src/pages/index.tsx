@@ -10,7 +10,7 @@ import styles from '../styles/home.module.scss'
 import Link from 'next/link'
 
 export default function Home() {
-  const [pokemonList, setPokemonList] = useState<string | Key>()
+  const [pokemonList, setPokemonList] = useState<string[] | Key>()
   const [page, setPage] = useState<number>(0)
 
   async function getPokemons() {

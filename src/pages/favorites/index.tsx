@@ -7,7 +7,7 @@ import styles from './favorites.module.scss'
 import { Card } from '@/components/Card'
 
 export default function Favorites() {
-  const [favoritesList, setFavoritesList] = useState()
+  const [favoritesList, setFavoritesList] = useState<string[]>()
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

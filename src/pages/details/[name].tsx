@@ -11,11 +11,12 @@ import { Form } from 'react-bootstrap'
 export default function Details() {
   const { query } = useRouter()
   const [check, setCheck] = useState<boolean>()
-  const [pokemon, setPokemon] = useState(query.name)
+  const [pokemon, setPokemon] = useState<string>(query.name)
   const [pokemonDetails, setPokemonDetails] = useState<any>()
   const pokemonImg = pokemonDetails?.sprites.front_default
 
-  var favorites: [] = JSON.parse(localStorage.getItem('favorites')) || []
+  var favorites: string[] | null =
+    JSON.parse(localStorage.getItem('favorites')) || []
 
   async function getPokemonsDetails() {
     try {
@@ -33,7 +34,7 @@ export default function Details() {
   // and setting it on localstorage
   function handleCheck() {
     setCheck(!check)
-    favorites.push(pokemon)
+    favorites?.push(pokemon)
     localStorage.setItem('favorites', JSON.stringify(favorites))
   }
 
