@@ -23,7 +23,10 @@ export default function Favorites() {
       </Head>
       <div>
         <Header />
-        <>
+        <div className={styles.body_header}>
+          List of your favorites Pokemons!
+        </div>
+        <div className={styles.body__cards}>
           {favoritesList ? (
             favoritesList?.map((favorite: Key | string) => (
               <div key={favorite}>
@@ -33,7 +36,7 @@ export default function Favorites() {
           ) : (
             <div>There is no Pokemons on your favorites list </div>
           )}
-        </>
+        </div>
       </div>
     </>
   )

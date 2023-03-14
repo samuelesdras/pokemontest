@@ -48,6 +48,7 @@ export default function Details() {
             <Form.Check
               label={`This is one of my favorites!`}
               id="favoritesCheck"
+              defaultChecked={false}
               checked={check}
               onClick={handleCheck}
             />

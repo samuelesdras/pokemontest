@@ -1,13 +1,10 @@
-.body__container {
+.body_header {
   display: flex;
   justify-content: center;
-  flex-direction: column;
 }
-.body__img {
-  border: 2px solid var(--gray-400);
-  border-radius: 5px;
-}
-.body__details {
-  width: 300px;
-  justify-content: start;
+
+.body__cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }

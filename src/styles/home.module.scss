@@ -7,3 +7,14 @@
 .body__card {
   height: 200px;
 }
+
+.body__card--links {
+  text-decoration: none;
+}
+.body__navbar {
+  display: flex;
+  cursor: pointer;
+  svg {
+    color: var(--gray-100);
+  }
+}
