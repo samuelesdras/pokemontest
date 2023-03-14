@@ -6,7 +6,7 @@ import styles from './card.module.scss'
 interface cardProps {
   name: string | number
 }
-
+//receving the name of the pokemon, which dont repeat, I took all info needed
 export function Card({ name }: cardProps) {
   const [pokemonDetails, setPokemonDetails] = useState<any>()
   const pokemonImg = pokemonDetails?.sprites.front_default
@@ -22,7 +22,7 @@ export function Card({ name }: cardProps) {
   useEffect(() => {
     getPokemonsDetails()
   }, [pokemonImg])
-
+  //Image from next has better performance rendering pictures
   return (
     <div className={styles.container}>
       {pokemonImg ? (

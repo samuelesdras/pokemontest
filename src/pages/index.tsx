@@ -21,11 +21,12 @@ export default function Home() {
       console.error(error)
     }
   }
-
+  //this effect is to get the pokemon info from the page start and on page var change
   useEffect(() => {
     getPokemons()
   }, [page])
 
+  //here we can change the pagination
   function advancePage() {
     setPage(page + 9)
   }
@@ -33,7 +34,8 @@ export default function Home() {
   function backPage() {
     setPage(page - 9)
   }
-
+  //on the body, I user the card componet to render pokemon info and Link from next t
+  // go the other pages
   return (
     <>
       <Head>

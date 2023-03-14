@@ -29,7 +29,8 @@ export default function Details() {
   useEffect(() => {
     getPokemonsDetails()
   }, [])
-
+  //ths is the function wich puts pokemons on favorites list updating the array favorites
+  // and setting it on localstorage
   function handleCheck() {
     setCheck(!check)
     favorites.push(pokemon)
